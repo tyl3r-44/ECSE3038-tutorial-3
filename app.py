@@ -36,3 +36,9 @@ def get_hottest_device():
 def get_online_devices():
     return [device for device in readings if device['online']]
 
+@app.get("/devices/{name}")
+def get_device_by_name(name: str):
+    device = next((d for d in readings if d['name'] == name), None)
+    if not device:
+        raise HTTPException(status_code=404, detail="Device not found")
+    return device
