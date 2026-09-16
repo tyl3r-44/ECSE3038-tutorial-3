@@ -54,3 +54,7 @@ def get_stats():
 @app.post("/devices")
 def add_device(device: dict):   
     return device
+
+@app.get("/rooms/{room}/devices")
+def get_devices_by_room(room: str):
+    return [device for device in readings if device['room'] == room]
