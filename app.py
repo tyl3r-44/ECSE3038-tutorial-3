@@ -51,3 +51,6 @@ def get_stats():
         "average_temperature": average_temp(readings),
         "hottest_device": hottest(readings)
     }
+@app.post("/devices")
+def add_device(device: dict):   
+    return device
