@@ -22,5 +22,5 @@ def hottest(devices):
 print(f"Hottest Device: {hottest(readings)['name']}, Temperature: {hottest(readings)['temp']}")
 hottest(readings)
 
-def td(_):
+def td()
     
