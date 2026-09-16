@@ -25,3 +25,4 @@ hottest(readings)
 @app.get("/devices")
 def get_devices():
     return readings
+
