@@ -42,3 +42,12 @@ def get_device_by_name(name: str):
     if not device:
         raise HTTPException(status_code=404, detail="Device not found")
     return device
+
+@app.get("/stats")
+def get_stats():
+    return {
+        "total_devices": len(readings),
+        "online_devices": len([device for device in readings if device['online']]),
+        "average_temperature": average_temp(readings),
+        "hottest_device": hottest(readings)
+    }
