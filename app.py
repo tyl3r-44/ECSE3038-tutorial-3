@@ -1,3 +1,5 @@
+from pickle import GET
+
 from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
@@ -26,3 +28,6 @@ hottest(readings)
 def get_devices():
     return readings
 
+@app.get("/devices/hottest")
+def get_hottest_device():
+    return hottest(readings)
